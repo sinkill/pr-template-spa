@@ -1,9 +1,7 @@
-include ../blocks/index/index
-
 extends ../blocks/layout-default/layout-default
 
 block head
-	- var pageTitle = 'asdsa Project Template';
+  - var pageTitle = 'Index Page';
 
 block content
-	+index()
+  .page__wrapper(ng-view)

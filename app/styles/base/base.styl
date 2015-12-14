@@ -1,22 +1,18 @@
+html,
 body
-	padding-top 20px
-	padding-bottom 20px
-	color #000
-	font-family cuprum, sans-serif
-	background-color #f0f0f0
-	background-image url(../images/chruch.png)
-	cursor default
+  height 100%
 
-	+mobile()
-		padding-top 0
-		padding-bottom 0
+body
+  font-family "Helvetica Neue", Helvetica, Arial
+  background-color #f0f0f0
+  margin 0
 
-.mark
-	padding 0 4px
-	font-weight bold
-	text-shadow 1px 1px 1px rgba(255, 255, 255, .5)
-	border-radius 4px
-	background-color #e8e8e8
+  +mobile()
+    padding-top 10px
+    padding-bottom 10px
 
-	&::selection
-		background-color rgba(0, 0, 0, .1)
+a,
+button,
+input,
+textarea
+  outline none !important

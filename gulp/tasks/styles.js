@@ -17,9 +17,9 @@ var gulp = require('gulp'),
 
 gulp.task('styles', function () {
     gulp.src('*.styl', {
-        cwd: 'app/styles',
-        nonull: true
-    })
+            cwd: 'app/styles',
+            nonull: true
+        })
         .pipe(plumber({errorHandler}))
         .pipe(stylus({
             errors: true,
@@ -30,22 +30,28 @@ gulp.task('styles', function () {
             sourcemap: gutil.env.debug ? {
                 comment: false,
                 inline: true
-            } : false
+            } : true
         }))
         .pipe(gulpif(!gutil.env.debug, cmq()))
-        .pipe(gulpif(!gutil.env.debug, minifyCss()))
+        //.pipe(gulpif(!gutil.env.debug, minifyCss()))
         .pipe(gulpif(gutil.env.csscomb, csscomb()))
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(config.styles));
+});
 
+
+gulp.task('stylesBower', function () {
     gulp.src(mainBowerFiles('**/*.css'))
         .pipe(gulp.dest(config.styles));
+});
 
+
+gulp.task('stylesBuild', function () {
     gulp.src([
-        './public/styles/base.min.css',
-        './public/styles/bootstrap.min.css',
-        './public/styles/common.min.css'
-    ])
+            './public/styles/base.min.css',
+            './public/styles/bootstrap.css',
+            './public/styles/common.min.css'
+        ])
         .pipe(concat('build.min.css'))
         .pipe(gulp.dest(config.build));
 });

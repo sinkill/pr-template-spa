@@ -25,15 +25,9 @@ gulp.task('externals', function () {
 
     gulp.src(vendors)
         .pipe(concat('_externals.min.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest(config.build));
 
-    gulp.src([
-        './bower_components/es5-shim/es5-shim.js',
-        './bower_components/es5-shim/es5-sham.js',
-        './bower_components/event-shim.js/event-shim.js',
-        './bower_components/html5shiv/dist/html5shiv.js',
-        './bower_components/css3-mediaqueries-js/css3-mediaqueries.js'
-    ])
-        .pipe(gulp.dest(config.vendors))
+    gulp.src(mainBowerFiles('**/*.js'))
+        .pipe(gulp.dest(config.vendors));
 });

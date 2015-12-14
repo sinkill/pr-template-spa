@@ -21,10 +21,13 @@ gulp.task('default', function () {
     runSequence(
         [
             'stylesDependences',
+            'stylesBower',
             'templatesDependences',
             'scripts',
-            'lint',
-            'externals'
+            //'lint',
+            'externals',
+            'stylesBuild',
+            'data'
         ],
         'server',
         'watch'
@@ -34,9 +37,11 @@ gulp.task('default', function () {
 gulp.task('build', ['del'], function () {
     gulp.start(
         'stylesDependences',
+        'stylesBower',
         'templatesDependences',
         'scripts',
         'copy',
-        'externals'
+        'externals',
+        'stylesBuild'
     );
 });

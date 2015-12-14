@@ -1,6 +1,5 @@
 var gulp = require('gulp'),
-    gutil = require('gulp-util'),
-    gulpif = require('gulp-if'),
+    concat = require('gulp-concat'),
     browserify = require('browserify'),
     babelify = require('babelify'),
     buffer = require('vinyl-buffer'),
@@ -10,16 +9,8 @@ var gulp = require('gulp'),
 
 
 gulp.task('scripts', function () {
-    browserify({debug: gutil.env.debug})
-        .transform(babelify.configure({sourceMaps: 'inline'}))
-        .require('app/scripts/application.js', {entry: true})
-        .require('app/scripts/directives/directives.js', {entry: true})
-        .require('app/scripts/services/services.js', {entry: true})
-        .require('app/views/search/search.js', {entry: true})
-        .bundle()
-        .on('error', err => console.log('Error: ' + err.message))
-        .pipe(source('_scripts.min.js'))
-        .pipe(buffer())
-        .pipe(gulpif(!gutil.env.debug, uglify()))
-        .pipe(gulp.dest(config.build))
+    gulp.src(['app/scripts/**/*.js', 'app/views/**/*.js'])
+        .pipe(concat('_scripts.min.js'))
+        //.pipe(uglify())
+        .pipe(gulp.dest(config.build));
 });

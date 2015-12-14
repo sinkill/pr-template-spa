@@ -1,57 +1,72 @@
 var gulp = require('gulp'),
-	runSequence = require('run-sequence'),
-	reload = require('browser-sync').reload,
-	watch = require('gulp-watch');
+    runSequence = require('run-sequence'),
+    reload = require('browser-sync').reload,
+    watch = require('gulp-watch');
 
 gulp.task('watch', function () {
-	global.watch = true;
+    global.watch = true;
 
     watch('app/sprite/**/*.png', gulp.start(
         'sprite'
     ));
 
-	watch('app/{styles,blocks}/**/*.styl', function () {
-		runSequence(
-			'styles', function () {
-				reload('styles/base.min.css');
-				reload('styles/common.min.css');
-			}
-		);
-	});
+    watch('app/{styles,blocks}/**/*.styl', function () {
+        runSequence(
+            'styles', function () {
+                reload('styles/base.min.css');
+                reload('styles/common.min.css');
+            }
+        );
+    });
 
-	watch('app/{pages,blocks}/**/*.jade', function () {
-		runSequence(
-			'templates',
+    watch('public/styles/**.css', function () {
+        runSequence(
+            'stylesBuild', function () {
+                reload('public/build/build.min.css');
+            }
+        );
+    });
+
+    watch('app/{pages,blocks}/**/*.jade', function () {
+        runSequence(
+            'templates',
             reload
-		);
-	});
+        );
+    });
 
-	watch('app/views/**/*.jade', function () {
-		runSequence(
-			'views',
+    watch('app/views/**/*.jade', function () {
+        runSequence(
+            'views',
             reload
-		);
-	});
+        );
+    });
 
-	watch('app/resources/**/*', function () {
-		runSequence(
-			'copy',
-			reload
-		);
-	});
+    watch('app/resources/**/*', function () {
+        runSequence(
+            'copy',
+            reload
+        );
+    });
 
-	watch('app/{scripts,views}/**/*.js', function () {
-		runSequence(
+    watch('app/data/**/*', function () {
+        runSequence(
+            'data',
+            reload
+        );
+    });
+
+    watch('app/{scripts,views}/**/*.js', function () {
+        runSequence(
             'scripts',
-            'lint',
+            //'lint',
             reload
-		);
-	});
+        );
+    });
 
-	watch('app/icons/**/*.svg', function () {
-		runSequence(
-			'icons',
-			reload
-		);
-	});
+    watch('app/icons/**/*.svg', function () {
+        runSequence(
+            'icons',
+            reload
+        );
+    });
 });

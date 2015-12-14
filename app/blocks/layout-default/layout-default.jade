@@ -1,20 +1,7 @@
-- var pageScripts = pageScripts || [[], [], []];
-
 include ../../../node_modules/bemto.jade/bemto.jade
-include ../header/header
-include ../main/main
-include ../footer/footer
-include ../scripts/scripts
-
-+script([], ['_scripts.min.js'])
 
 doctype html
-html(lang='ru')
-	include ../head/head
-	body
-		+main()
-			+header()
-			block content
-			+footer()
-
-		+scripts()
+html(lang='ru' ng-app='Application')
+  include ../head/head
+  body.page(ng-controller='globalController' ng-class='tmplClass')
+    block content

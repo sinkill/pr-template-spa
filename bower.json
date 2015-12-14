@@ -8,43 +8,24 @@
     "event-shim.js": "latest",
     "html5shiv": "latest",
     "css3-mediaqueries-js": "latest",
-    "angular": "1.4.8",
-    "angular-route": "1.4.8",
-    "angular-cookies": "1.4.8",
-    "angular-resource": "1.4.8",
     "jquery": "2.1.4",
-    "bootstrap": "3.3.6"
+    "angular": "1.4.8",
+    "angular-route": "1.4.8"
   },
   "overrides": {
+    "jquery": {
+      "main": [
+        "./dist/jquery.js"
+      ]
+    },
     "angular": {
       "main": [
-        "./angular.min.js"
+        "./angular.js"
       ]
     },
     "angular-route": {
       "main": [
-        "./angular-route.min.js"
-      ]
-    },
-    "angular-resource": {
-      "main": [
-        "./angular-resource.min.js"
-      ]
-    },
-    "angular-cookies": {
-      "main": [
-        "./angular-cookies.min.js"
-      ]
-    },
-    "jquery": {
-      "main": [
-        "./dist/jquery.min.js"
-      ]
-    },
-    "bootstrap": {
-      "main": [
-        "./dist/js/bootstrap.min.js",
-        "./dist/css/bootstrap.min.css"
+        "./angular-route.js"
       ]
     }
   }
