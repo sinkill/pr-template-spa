@@ -6,12 +6,12 @@ var gulp = require('gulp'),
 var correctNumber = number => number < 10 ? '0' + number : number;
 
 var getDateTime = function () {
-    var now = new Date();
-    var year = now.getFullYear();
-    var month = correctNumber(now.getMonth() + 1);
-    var day = correctNumber(now.getDate());
-    var hours = correctNumber(now.getHours());
-    var minutes = correctNumber(now.getMinutes());
+	var now = new Date(),
+		year = now.getFullYear(),
+		month = correctNumber(now.getMonth() + 1),
+		day = correctNumber(now.getDate()),
+		hours = correctNumber(now.getHours()),
+		minutes = correctNumber(now.getMinutes());
 
     return `${year}-${month}-${day}-${hours}${minutes}`;
 };

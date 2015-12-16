@@ -28,10 +28,11 @@ gulp.task('watch', function () {
     });
 
     watch('app/{pages,blocks}/**/*.jade', function () {
-        runSequence(
-            'templates',
-            reload
-        );
+		runSequence(
+			'templates', function () {
+				reload
+			}
+		);
     });
 
     watch('app/views/**/*.jade', function () {

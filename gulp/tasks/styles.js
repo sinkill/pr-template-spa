@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     concat = require('gulp-concat'),
     mainBowerFiles = require('main-bower-files'),
-    errorHandler = require('../helpers/errorHandler'),
+	errorHandler = require('gulp-plumber-error-handler'),
     config = require('../config.js').paths;
 
 
@@ -20,7 +20,7 @@ gulp.task('styles', function () {
             cwd: 'app/styles',
             nonull: true
         })
-        .pipe(plumber({errorHandler}))
+		.pipe(plumber({errorHandler: errorHandler('Error in \'styles\' task')}))
         .pipe(stylus({
             errors: true,
             use: [

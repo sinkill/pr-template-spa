@@ -34,7 +34,7 @@ gulp.task('default', function () {
     );
 });
 
-gulp.task('build', ['del'], function () {
+gulp.task('build', function () {
     gulp.start(
         'stylesDependences',
         'stylesBower',

@@ -1,5 +1,5 @@
 # Program Code Project Template
-**Шаблон проекта для быстрого старта.**
+**Шаблон проекта для быстрого старта SPA.**
 
 ## Старт проекта
 
@@ -9,80 +9,74 @@
 git clone git@github.com:sinkill/pr-project-template.git new-project && cd new-project
 ```
 
-* Установи `gulp` глобально:
-
-```bash
-npm i -g gulp
-```
-
-* Установи зависимости:
+* Установи модули:
 
 ```
 npm i
 ```
 
-* Запусти Gulp.js:
+* Запусти шаблон:
 
 ```
-gulp
+npm start
 ```
 
 * Открой в браузере [`http://localhost:3000/`](http://localhost:3000/).
 
 ## Команды для запуска с Gulp.js
 
-* Запуск Gulp с отслеживанием изменений:
+* Запуск с отслеживанием изменений:
 
 ```
-gulp
+npm start
 ```
 
 * Сборка в папку `dist`:
 
 ```
-gulp build
+npm run build
 ```
 
 * Сборка в папку `dist` с добавлением файла `robots.txt` для запрета индексации:
 
 ```
-gulp build --robots
+npm start --robots
 ```
 
 * Локальный сервер на другом порте:
 
 ```
-gulp --port=9000
+npm start --port=9000
 ```
 
 * Собирать скрипты и стили без минификации:
 
 ```
-gulp --debug
+npm start --debug
 ```
 
 * Воспроизводить звук при ошибках:
 
 ```
-gulp --beep
+npm start --beep
 ```
 
 * Расшарить локальный сервер:
 
 ```
-gulp --tunnel
+npm start --tunnel
 ```
 
 * Открыть ссылку в браузере по умолчанию:
 
 ```
-gulp --open
+npm start --open
 ```
 
 * Собрать архив из папки `dist`:
 
 ```
-gulp zip
+npm run zip
 ```
 
 * Деплой всего содержимого папки `dist` в ветку `dist`:
@@ -119,25 +113,29 @@ npm run deploy
 │   │    │   └── variables.styl  # Переменные
 │   │    ├── base.styl           # Главный базовый стилевой файл
 │   │    └── common.styl         # Главный стилевой файл
-│   └── views/                   # Шаблоны
+│   └── views/                   # Шаблоны подключаемые через ng-view 
 │        └── view/               # Шаблон
 │            ├── view.jade       # Разметка шаблона
 │            └── view.js         # Скрипт шаблона
 ├── public/                      # Сборка (автогенерация)
+│   ├── build/                   # Конкатенация скриптов и стилей
 │   ├── fonts/                   # Шрифты
 │   ├── images/                  # Изображения
-│   ├── build/                   # Конкатенация скриптов и стилей
 │   ├── scripts/                 # Скрипты
-│   ├── styles/                  # Стили
+│   ├── styles/                  # Стили + стили из bower_components 
+│   ├── vendors/                 # Скрипты из bower_components
 │   ├── views/                   # Шаблоны
 │   └── index.html               # Страница
 ├── gulp/                        # Подключаемые скрипты для gulpfile.coffee
+│   ├── helpers/                 # Хелперы
 │   ├── tasks/                   # Скрипты с задачами для Gulp.js
 │   └── config.js                # Список путей для генерации файлов
+├── .bowerrc                     # Путь к папки в которую будут загружаться bower модули
 ├── .csscomb.json                # Конфигурация форматирования CSS
-├── .eslintrc                    # Конфигурация проверки JavaScript в ESLint
 ├── .editorconfig                # Конфигурация настроек редактора кода
+├── .eslintrc                    # Конфигурация проверки JavaScript в ESLint
 ├── .gitignore                   # Список исключённых файлов из Git
+├── bower.json                   # Bower модули
 ├── browserlist                  # Список версий браузеров для Autoprefixer
 ├── gulpfile.js                  # Файл для запуска Gulp.js
 ├── package.json                 # Список модулей и прочей информации

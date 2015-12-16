@@ -1,10 +1,6 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
-    browserify = require('browserify'),
-    babelify = require('babelify'),
-    buffer = require('vinyl-buffer'),
     uglify = require('gulp-uglify'),
-    source = require('vinyl-source-stream'),
     config = require('../config.js').paths;
 
 
