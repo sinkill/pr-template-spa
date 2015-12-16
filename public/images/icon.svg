@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" style="width:0; height:0; visibility:hidden;">
-    <symbol id="icon_cross-2" viewBox="0 0 14 14">
-       <svg width="32" height="32" viewBox="0 0 32 32" x="-9" y="-9"> <path d="M9.7 9l-.7.7 6.3 6.3L9 22.3l.7.7 6.3-6.3 6.3 6.3.7-.7-6.3-6.3L23 9.7l-.7-.7-6.3 6.3" fill="#000" fill-rule="evenodd"/> </svg> 
-    </symbol>
-    <symbol id="icon_cross" viewBox="0 0 14 14">
-       <svg width="32" height="32" viewBox="0 0 32 32" x="-9" y="-9"> <path d="M9.7 9l-.7.7 6.3 6.3L9 22.3l.7.7 6.3-6.3 6.3 6.3.7-.7-6.3-6.3L23 9.7l-.7-.7-6.3 6.3" fill="#000" fill-rule="evenodd"/> </svg> 
-    </symbol></svg>
