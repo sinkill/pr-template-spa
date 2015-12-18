@@ -19,10 +19,10 @@ gulp.task('watch', function () {
         );
     });
 
-    watch('public/styles/**.css', function () {
+    watch('dist/styles/**.css', function () {
         runSequence(
             'stylesBuild', function () {
-                reload('public/build/build.min.css');
+                reload('dist/build/build.min.css');
             }
         );
     });

@@ -5,12 +5,12 @@ module.exports = {
 	paths: {
 		appImages: 'app/images',
 		appStylesHelpers: 'app/styles/helpers',
-		publicPath: 'public',
-		data: 'public/data/',
-		views: 'public/views/',
-		images: 'public/images/',
-		styles: 'public/styles/',
-		build: 'public/build/',
-		vendors: 'public/vendors/'
+		distPath: 'dist',
+		data: 'dist/data/',
+		views: 'dist/views/',
+		images: 'dist/images/',
+		styles: 'dist/styles/',
+		build: 'dist/build/',
+		vendors: 'dist/vendors/'
 	}
 };

@@ -18,9 +18,9 @@ var getDateTime = function () {
 
 gulp.task('zip', function () {
     var datetime = gutil.env.zipDateTime ? '-' + getDateTime : '';
-    var zipName = 'public' + datetime + '.zip';
+    var zipName = 'dist' + datetime + '.zip';
 
-    gulp.src('public/**/*')
+    gulp.src('dist/**/*')
         .pipe(zip(zipName))
-        .pipe(gulp.dest(config.publicPath));
+        .pipe(gulp.dest(config.distPath));
 });

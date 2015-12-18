@@ -26,5 +26,5 @@ gulp.task('templates', function () {
 		//	preserve_newlines: true
 		//}))
         .pipe(rename({dirname: '.'}))
-        .pipe(gulp.dest(config.publicPath))
+        .pipe(gulp.dest(config.distPath))
 });

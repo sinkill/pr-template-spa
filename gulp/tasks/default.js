@@ -25,9 +25,9 @@ gulp.task('default', function () {
             'templatesDependences',
             'scripts',
             //'lint',
+            'data',
             'externals',
-            'stylesBuild',
-            'data'
+            'stylesBuild'
         ],
         'server',
         'watch'
@@ -41,6 +41,7 @@ gulp.task('build', function () {
         'templatesDependences',
         'scripts',
         'copy',
+        'data',
         'externals',
         'stylesBuild'
     );

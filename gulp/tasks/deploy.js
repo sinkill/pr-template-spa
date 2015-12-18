@@ -3,5 +3,5 @@ var gulp = require('gulp'),
     ghpages = require('gulp-gh-pages');
 
 gulp.task('deploy', function () {
-    gulp.src(['public/**/*', '!public/robots.txt']).pipe(ghpages({branch: 'frontend'}))
+    gulp.src(['dist/**/*', '!dist/robots.txt']).pipe(ghpages({branch: 'frontend'}))
 });

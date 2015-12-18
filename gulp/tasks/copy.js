@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 
 gulp.task('copy', function () {
     gulp.src('app/resources/**/*')
-        .pipe(changed(config.publicPath))
+        .pipe(changed(config.distPath))
         .pipe(gulpif(!gutil.env.robots, filter(file => !/resources[\\\/]robots\.txt/.test(file.path))))
-        .pipe(gulp.dest(config.publicPath));
+        .pipe(gulp.dest(config.distPath));
 });

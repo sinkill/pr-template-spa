@@ -1,6 +1,6 @@
 {
   "name": "pr-project-template",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A template for a quick start.",
   "author": {
     "name": "Artem Krynkin",
@@ -12,7 +12,7 @@
     "build": "npm run clean && gulp build",
     "lint": "gulp lint",
     "deploy": "npm run clean && gulp build --robots && gulp deploy",
-    "clean": "rm -rf public/*",
+    "clean": "rm -rf dist/*",
     "zip": "npm run clean && gulp zip",
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js  --single-run",

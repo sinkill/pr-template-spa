@@ -5,14 +5,14 @@ var gulp = require('gulp'),
 
 gulp.task('server', function () {
     browserSync.init({
-        files: ['public/**/*'],
+        files: ['dist/**/*'],
         open: !!gutil.env.open,
         reloadOnRestart: true,
         port: gutil.env.port || 3000,
         server: {
             baseDir: [
                 'app/resources',
-                'public'
+                'dist'
             ],
             directory: false,
             middleware: gutil.env.debug ? [debuga()] : []

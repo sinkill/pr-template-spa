@@ -48,9 +48,9 @@ gulp.task('stylesBower', function () {
 
 gulp.task('stylesBuild', function () {
     gulp.src([
-            './public/styles/base.min.css',
-            './public/styles/bootstrap.css',
-            './public/styles/common.min.css'
+            './dist/styles/base.min.css',
+            './dist/styles/bootstrap.css',
+            './dist/styles/common.min.css'
         ])
         .pipe(concat('build.min.css'))
         .pipe(gulp.dest(config.build));
