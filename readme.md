@@ -6,7 +6,7 @@
 * Клонирование репозитория и переход в папку проекта:
 
 ```
-git clone git@github.com:sinkill/pr-project-template.git new-project && cd new-project
+git clone git@github.com:sinkill/pr-template-spa.git new-project && cd new-project
 ```
 
 * Установка модулей:
