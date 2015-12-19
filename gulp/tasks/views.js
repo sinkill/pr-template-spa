@@ -7,24 +7,23 @@ var gulp = require('gulp'),
     filter = require('gulp-filter'),
     prettify = require('gulp-prettify'),
     rename = require('gulp-rename'),
-	errorHandler = require('gulp-plumber-error-handler'),
+    errorHandler = require('gulp-plumber-error-handler'),
     config = require('../config.js').paths;
 
-
 gulp.task('views', function () {
-    gulp.src('app/views/**/*.jade')
-		.pipe(plumber({errorHandler: errorHandler('Error in \'views\' task')}))
+    gulp.src('app/**/*.jade')
+        .pipe(plumber({errorHandler: errorHandler('Error in \'views\' task')}))
         .pipe(cached('jade'))
         .pipe(gulpif(global.watch, inheritance({basedir: 'app'})))
         .pipe(filter(file => /app[\\\/]views/.test(file.path)))
         .pipe(jade())
-        //.pipe(prettify({
-        //	brace_style: 'expand',
-        //	indent_size: 1,
-        //	indent_char: '\t',
-        //	indent_inner_html: true,
-        //	preserve_newlines: true
-        //}))
+        .pipe(prettify({
+            brace_style: 'expand',
+            indent_size: 1,
+            indent_char: '\t',
+            indent_inner_html: true,
+            preserve_newlines: true
+        }))
         .pipe(rename({dirname: '.'}))
-        .pipe(gulp.dest(config.views))
+        .pipe(gulp.dest(config.views));
 });

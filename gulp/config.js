@@ -7,7 +7,7 @@ module.exports = {
 		appStylesHelpers: 'app/styles/helpers',
 		distPath: 'dist',
 		data: 'dist/data/',
-		views: 'dist/views/',
+        views: 'dist/views/',
 		images: 'dist/images/',
 		styles: 'dist/styles/',
 		build: 'dist/build/',

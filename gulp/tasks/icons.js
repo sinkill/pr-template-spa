@@ -18,5 +18,5 @@ gulp.task('icons', function () {
         }))
         .pipe(gulpif(/\.styl$/, gulp.dest('app/styles/helpers')))
         .pipe(gulpif(/\.svg$/, rename('icon.svg')))
-        .pipe(gulpif(/\.svg$/, gulp.dest('public/images/')))
+        .pipe(gulpif(/\.svg$/, gulp.dest('dist/images/')))
 });

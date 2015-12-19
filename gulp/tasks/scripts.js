@@ -5,7 +5,7 @@ var gulp = require('gulp'),
 
 
 gulp.task('scripts', function () {
-    gulp.src(['app/scripts/**/*.js', 'app/views/**/*.js'])
+    gulp.src('app/scripts/**/*.js')
         .pipe(concat('_scripts.min.js'))
         //.pipe(uglify())
         .pipe(gulp.dest(config.build));

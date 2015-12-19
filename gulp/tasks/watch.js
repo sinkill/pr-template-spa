@@ -27,18 +27,19 @@ gulp.task('watch', function () {
         );
     });
 
-    watch('app/{pages,blocks}/**/*.jade', function () {
-		runSequence(
-			'templates', function () {
-				reload
-			}
-		);
+    watch('app/pages/**/*.jade', function () {
+        runSequence(
+            'templates', function () {
+                reload
+            }
+        );
     });
 
-    watch('app/views/**/*.jade', function () {
+    watch('app/{views,blocks}/**/*.jade', function () {
         runSequence(
-            'views',
-            reload
+            'views', function () {
+                reload
+            }
         );
     });
 

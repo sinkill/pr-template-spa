@@ -3,11 +3,11 @@
 // Declare app level module which depends on views, and components
 angular.module('Application', [
         'ngRoute',
-        'Application.index'
+        'Application.home'
     ])
 
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-        $routeProvider.otherwise({redirectTo: '/index'});
+        $routeProvider.otherwise({redirectTo: '/home'});
 
         $locationProvider.html5Mode(false);
     }])

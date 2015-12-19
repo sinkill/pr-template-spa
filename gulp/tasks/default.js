@@ -4,13 +4,17 @@ var gulp = require('gulp'),
 
 gulp.task('stylesDependences', function () {
     runSequence(
-        'sprite',
-        'icons',
-        'styles'
+        [
+            'stylesBower',
+            'sprite',
+            'icons',
+            'styles'
+        ],
+        'stylesBuild'
     );
 });
 
-gulp.task('templatesDependences', function () {
+gulp.task('tplsDependences', function () {
     runSequence(
         'templates',
         'views'
@@ -21,13 +25,11 @@ gulp.task('default', function () {
     runSequence(
         [
             'stylesDependences',
-            'stylesBower',
-            'templatesDependences',
+            'tplsDependences',
             'scripts',
             //'lint',
             'data',
-            'externals',
-            'stylesBuild'
+            'externals'
         ],
         'server',
         'watch'
@@ -35,14 +37,12 @@ gulp.task('default', function () {
 });
 
 gulp.task('build', function () {
-    gulp.start(
+    runSequence(
         'stylesDependences',
-        'stylesBower',
-        'templatesDependences',
+        'tplsDependences',
         'scripts',
         'copy',
         'data',
-        'externals',
-        'stylesBuild'
+        'externals'
     );
 });
