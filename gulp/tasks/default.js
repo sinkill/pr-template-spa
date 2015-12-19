@@ -6,7 +6,7 @@ gulp.task('stylesDependences', function () {
     runSequence(
         [
             'stylesBower',
-            'sprite',
+            'sprites',
             'icons',
             'styles'
         ],

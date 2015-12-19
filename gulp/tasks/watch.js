@@ -6,8 +6,8 @@ var gulp = require('gulp'),
 gulp.task('watch', function () {
     global.watch = true;
 
-    watch('app/sprite/**/*.png', gulp.start(
-        'sprite'
+    watch('app/sprites/**/*.png', gulp.start(
+        'sprites'
     ));
 
     watch('app/{styles,blocks}/**/*.styl', function () {

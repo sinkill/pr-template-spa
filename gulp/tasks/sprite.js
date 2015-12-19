@@ -6,13 +6,13 @@ var gulp = require('gulp'),
     config = require('../config.js').paths;
 
 
-gulp.task('sprite', function () {
-    var spriteData = gulp.src('app/sprite/**/*.png', {read: false})
-		.pipe(plumber({errorHandler: errorHandler('Error in \'sprite\' task')}))
+gulp.task('sprites', function () {
+    var spriteData = gulp.src('app/sprites/**/*.png', {read: false})
+		.pipe(plumber({errorHandler: errorHandler('Error in \'sprites\' task')}))
         .pipe(spritesmith({
-            imgName: 'sprite.png',
-            cssName: 'sprite.styl',
-            imgPath: '../images/sprite.png',
+            imgName: 'sprites.png',
+            cssName: 'sprites.styl',
+            imgPath: '../images/sprites.png',
             cssFormat: 'stylus',
             algorithm: 'binary-tree',
             padding: 8,
@@ -24,7 +24,7 @@ gulp.task('sprite', function () {
 
     spriteData.img
         .pipe(imagemin({optimizationLevel: 3}))
-        .pipe(gulp.dest(config.images));
+        .pipe(gulp.dest(config.sprites));
 
     return spriteData.css.pipe(gulp.dest(config.appStylesHelpers));
 });
