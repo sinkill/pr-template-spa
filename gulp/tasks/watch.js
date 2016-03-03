@@ -1,7 +1,10 @@
-var gulp = require('gulp'),
-    runSequence = require('run-sequence'),
-    reload = require('browser-sync').reload,
-    watch = require('gulp-watch');
+'use strict';
+
+var gulp = require('gulp');
+var runSequence = require('run-sequence');
+var reload = require('browser-sync').reload;
+var watch = require('gulp-watch');
+
 
 gulp.task('watch', function () {
     global.watch = true;
@@ -13,16 +16,7 @@ gulp.task('watch', function () {
     watch('app/{styles,blocks}/**/*.styl', function () {
         runSequence(
             'styles', function () {
-                reload('styles/base.min.css');
-                reload('styles/common.min.css');
-            }
-        );
-    });
-
-    watch('dist/styles/**.css', function () {
-        runSequence(
-            'stylesBuild', function () {
-                reload('dist/build/build.min.css');
+                reload('dist/styles/build.min.css')
             }
         );
     });
@@ -45,7 +39,7 @@ gulp.task('watch', function () {
 
     watch('app/resources/**/*', function () {
         runSequence(
-            'copy',
+            'copy-local',
             reload
         );
     });

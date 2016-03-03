@@ -1,18 +1,19 @@
 'use strict';
 
-angular.module('Application.home', [
-        'ngRoute'
-    ])
+angular.module('home', [])
 
-    .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/home', {
-            title: 'Главная страница',
-            tmplClass: 'home',
+    .config(($stateProvider) => {
+        $stateProvider.state('home', {
+            url: '/home',
             templateUrl: 'views/home.html',
-            controller: 'homeCtrl'
+            controller: 'HomeController',
+            data: {
+                title: 'Главная страница',
+                tmplClass: 'home'
+            }
         });
-    }])
+    })
 
-    .controller('homeCtrl', function () {
+    .controller('HomeController', () => {
 
     });

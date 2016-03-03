@@ -4,7 +4,7 @@
 mixin renderScript(scripts)
   each src in scripts
     - var isExternalScript = /^(?:https?\:)?\/\//i;
-    - src = isExternalScript.test(src) ? src : 'build/' + src;
+    - src = isExternalScript.test(src) ? src : '/build/' + src;
     script(src=src)
 
 mixin script()

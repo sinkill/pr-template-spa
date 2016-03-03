@@ -1,26 +1,30 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('Application', [
-        'ngRoute',
-        'Application.home'
-    ])
+angular.module('app', [
+    'ui.router',
+    'LocalStorageModule',
+    'ngSanitize',
+    // ^ vendors
+    'home'
+])
 
-    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-        $routeProvider.otherwise({redirectTo: '/home'});
+    .config(($urlRouterProvider, $locationProvider) => {
+        $urlRouterProvider.otherwise('/404');
 
-        $locationProvider.html5Mode(false);
-    }])
+        $locationProvider.html5Mode(true).hashPrefix('!');
+    })
 
-    .run(['$rootScope', function($rootScope) {
-        $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-            if (current.hasOwnProperty('$$route')) {
-                $rootScope.title = current.$$route.title;
-                $rootScope.tmplClass = current.$$route.tmplClass;
-            }
+    .run(($rootScope, $state, $stateParams) => {
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+
+        $rootScope.$on('$stateChangeStart', (event, toState, toParams, fromState, fromParams) => {
+            $rootScope.title = toState.data.title;
+            $rootScope.tmplClass = toState.data.tmplClass;
         });
-    }])
+    })
 
-    .controller('globalController', function () {
+    .controller('GlobalController', ($scope) => {
 
     });

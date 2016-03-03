@@ -1,9 +1,11 @@
-var gulp = require('gulp'),
-    mainBowerFiles = require('main-bower-files'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
-    config = require('../config').paths;
+'use strict';
 
+var gulp = require('gulp');
+var mainBowerFiles = require('main-bower-files');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
+var config = require('../config').paths;
 
 gulp.task('externals', function () {
     var vendors = mainBowerFiles('**/*.js', {
@@ -24,8 +26,9 @@ gulp.task('externals', function () {
     });
 
     gulp.src(vendors)
-        .pipe(concat('_externals.min.js'))
         .pipe(uglify())
+        .pipe(concat('_externals.js'))
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(config.build));
 
     gulp.src(mainBowerFiles('**/*.js'))

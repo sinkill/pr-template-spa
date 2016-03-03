@@ -1,17 +1,18 @@
-"use strict";
+'use strict';
 
 // Paths
 module.exports = {
-	paths: {
-		appImages: 'app/images',
-		appStylesHelpers: 'app/styles/helpers',
-		distPath: 'dist',
-		data: 'dist/data/',
+    paths: {
+        appImages: 'app/images',
+        appStylesHelpers: 'app/styles/helpers',
+        distPath: 'dist',
+        data: 'dist/data/',
         views: 'dist/views/',
-		images: 'dist/images/',
-		sprites: 'dist/images/sprites/',
-		styles: 'dist/styles/',
-		build: 'dist/build/',
-		vendors: 'dist/vendors/'
-	}
+        images: 'dist/images/',
+        icons: 'dist/images/icons/',
+        sprites: 'dist/images/sprites/',
+        styles: 'dist/styles/',
+        build: 'dist/build/',
+        vendors: 'dist/vendors/'
+    }
 };

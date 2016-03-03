@@ -17,6 +17,13 @@ gulp.task('server', function () {
             directory: false,
             middleware: gutil.env.debug ? [debuga()] : []
         },
+        //proxy: {
+        //    target: 'http://your-domain.local'
+        //    middleware: function (req, res, next) {
+        //    console.log(req.url);
+        //    next();
+        //    }
+        //},
         tunnel: !!gutil.env.tunnel
     });
 });

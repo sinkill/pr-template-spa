@@ -1,6 +1,8 @@
-var gulp = require('gulp'),
-    changed = require('gulp-changed'),
-    config = require('../config').paths;
+'use strict';
+
+var gulp = require('gulp');
+var changed = require('gulp-changed');
+var config = require('../config').paths;
 
 
 gulp.task('data', function () {

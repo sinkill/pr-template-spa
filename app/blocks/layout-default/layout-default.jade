@@ -1,7 +1,7 @@
 include ../../../node_modules/bemto.jade/bemto.jade
 
 doctype html
-html(lang='ru' ng-app='Application')
+html(lang='ru-RU' manifest='findface.appcache' ng-csp='' xmlns:ng='http://angularjs.org' ng-app='app')
   include ../head/head
-  body.page(ng-class='tmplClass')
+  body.page(ng-controller='GlobalController' ng-class='tmplClass')
     block content
