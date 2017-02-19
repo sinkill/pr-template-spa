@@ -5,25 +5,25 @@ var gulp = require('gulp'),
 
 gulp.task('server', function () {
     browserSync.init({
-        files: ['dist/**/*'],
+        files: ['public/**/*'],
         open: !!gutil.env.open,
         reloadOnRestart: true,
         port: gutil.env.port || 3000,
         server: {
             baseDir: [
                 'app/resources',
-                'dist'
+                'public'
             ],
             directory: false,
-            middleware: gutil.env.debug ? [debuga()] : []
+            middleware: gutil.env.debug ? [debuga({dist: 'public'})] : []
         },
-        //proxy: {
-        //    target: 'http://your-domain.local'
-        //    middleware: function (req, res, next) {
-        //    console.log(req.url);
-        //    next();
-        //    }
-        //},
+        /*proxy: {
+             target: 'http://example.local',
+             middleware: function (req, res, next) {
+                 console.log(req.url);
+                 next();
+             }
+         },*/
         tunnel: !!gutil.env.tunnel
     });
 });

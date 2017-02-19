@@ -1,34 +1,31 @@
-'use strict';
-
-var gulp = require('gulp');
-var plumber = require('gulp-plumber');
-var gulpif = require('gulp-if');
-var jade = require('gulp-jade');
-var inheritance = require('gulp-jade-inheritance');
-var cached = require('gulp-cached');
-var filter = require('gulp-filter');
-var prettify = require('gulp-prettify');
-var rename = require('gulp-rename');
-var errorHandler = require('gulp-plumber-error-handler');
-var config = require('../config.js').paths;
-
+var gulp = require('gulp'),
+    plumber = require('gulp-plumber'),
+    gulpif = require('gulp-if'),
+    pug = require('gulp-pug'),
+    inheritance = require('gulp-pug-inheritance'),
+    cached = require('gulp-cached'),
+    filter = require('gulp-filter'),
+    prettify = require('gulp-prettify'),
+    rename = require('gulp-rename'),
+    errorHandler = require('gulp-plumber-error-handler'),
+    config = require('../config').paths;
 
 gulp.task('templates', function () {
-    gulp.src('app/pages/*.jade')
+    gulp.src('app/**/*.pug')
         .pipe(plumber({errorHandler: errorHandler('Error in \'templates\' task')}))
-        .pipe(cached('jade'))
-        .pipe(gulpif(global.watch, inheritance({basedir: 'app'})))
+        .pipe(cached('pug'))
+        .pipe(gulpif(global.watch, inheritance({basedir: 'app', skip: 'node_modules'})))
         .pipe(filter(function (file) {
             return /app[\\\/]pages/.test(file.path);
         }))
-        .pipe(jade())
-        //.pipe(prettify({
-        //    brace_style: 'expand',
-        //    indent_size: 1,
-        //    indent_char: '\t',
-        //    indent_inner_html: true,
-        //    preserve_newlines: true
-        //}))
+        .pipe(pug())
+        // .pipe(prettify({
+        //     brace_style: 'expand',
+        //     indent_size: 1,
+        //     indent_char: '\t',
+        //     indent_inner_html: true,
+        //     preserve_newlines: true
+        // }))
         .pipe(rename({dirname: '.'}))
-        .pipe(gulp.dest(config.distPath));
+        .pipe(gulp.dest(config.publicPath));
 });

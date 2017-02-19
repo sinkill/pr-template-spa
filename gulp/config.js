@@ -1,18 +1,19 @@
 'use strict';
 
+var gutil = require('gulp-util'),
+    env = gutil.env.env,
+    buildPath = 'public';
+
 // Paths
 module.exports = {
     paths: {
         appImages: 'app/images',
         appStylesHelpers: 'app/styles/helpers',
-        distPath: 'dist',
-        data: 'dist/data/',
-        views: 'dist/views/',
-        images: 'dist/images/',
-        icons: 'dist/images/icons/',
-        sprites: 'dist/images/sprites/',
-        styles: 'dist/styles/',
-        build: 'dist/build/',
-        vendors: 'dist/vendors/'
+        publicPath: buildPath,
+        views: buildPath + '/views/',
+        build: buildPath + '/build/',
+        images: buildPath + '/images/',
+        sprites: buildPath + '/images/sprites/',
+        vendors: buildPath + '/vendors/'
     }
 };

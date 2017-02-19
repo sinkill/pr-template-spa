@@ -1,8 +1,5 @@
-'use strict';
-
-var gulp = require('gulp');
-var runSequence = require('run-sequence');
-
+var gulp = require('gulp'),
+    runSequence = require('run-sequence');
 
 gulp.task('stylesDependences', function () {
     runSequence(
@@ -22,13 +19,11 @@ gulp.task('tplsDependences', function () {
 gulp.task('default', function () {
     runSequence(
         [
-            'update-version-config',
             'stylesDependences',
             'stylesExternals',
             'tplsDependences',
             'scripts',
-            'copy-local',
-            'data',
+            'copy',
             'externals'
         ],
         'server',
@@ -38,13 +33,11 @@ gulp.task('default', function () {
 
 gulp.task('build', function () {
     runSequence(
-        'update-version-config',
         'stylesDependences',
         'stylesExternals',
         'tplsDependences',
         'scripts',
         'copy',
-        'data',
         'externals'
     );
 });

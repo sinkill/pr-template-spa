@@ -7,10 +7,12 @@
     "event-shim.js": "latest",
     "html5shiv": "latest",
     "css3-mediaqueries-js": "latest",
-    "angular": "1.5.0",
-    "angular-ui-router": "~0.2.15",
-    "angular-sanitize": "~1.5.0",
-    "angular-local-storage": "~0.2.3"
+    "angular": "*",
+    "angular-ui-router": "^0.3.1",
+    "angular-sanitize": "*",
+    "angular-messages": "*",
+    "angular-animate": "*",
+    "angular-local-storage": "^0.3.0"
   },
   "overrides": {
     "angular": {

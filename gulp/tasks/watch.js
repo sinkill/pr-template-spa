@@ -1,10 +1,7 @@
-'use strict';
-
-var gulp = require('gulp');
-var runSequence = require('run-sequence');
-var reload = require('browser-sync').reload;
-var watch = require('gulp-watch');
-
+var gulp = require('gulp'),
+    runSequence = require('run-sequence'),
+    reload = require('browser-sync').reload,
+    watch = require('gulp-watch');
 
 gulp.task('watch', function () {
     global.watch = true;
@@ -16,12 +13,12 @@ gulp.task('watch', function () {
     watch('app/{styles,blocks}/**/*.styl', function () {
         runSequence(
             'styles', function () {
-                reload('dist/styles/build.min.css')
+                reload('public/build/build.min.css');
             }
         );
     });
 
-    watch('app/pages/**/*.jade', function () {
+    watch('app/pages/**/*.pug', function () {
         runSequence(
             'templates', function () {
                 reload
@@ -29,7 +26,7 @@ gulp.task('watch', function () {
         );
     });
 
-    watch('app/{views,blocks}/**/*.jade', function () {
+    watch('app/{views,blocks}/**/*.pug', function () {
         runSequence(
             'views', function () {
                 reload
@@ -39,30 +36,18 @@ gulp.task('watch', function () {
 
     watch('app/resources/**/*', function () {
         runSequence(
-            'copy-local',
+            'copy',
             reload
         );
     });
 
-    watch('app/data/**/*', function () {
+    watch('app/{scripts,blocks}/**/*.js', function () {
         runSequence(
-            'data',
-            reload
-        );
-    });
-
-    watch('app/{scripts,views}/**/*.js', function () {
-        runSequence(
-            'scripts',
-            //'lint',
-            reload
-        );
-    });
-
-    watch('app/icons/**/*.svg', function () {
-        runSequence(
-            'icons',
-            reload
+            'scripts', function () {
+                setTimeout(function () {
+                    reload
+                }, 500);
+            }
         );
     });
 });
