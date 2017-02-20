@@ -10,9 +10,9 @@ var gulp = require('gulp'),
     errorHandler = require('gulp-plumber-error-handler'),
     config = require('../config').paths;
 
-gulp.task('templates', function () {
-    gulp.src('app/**/*.pug')
-        .pipe(plumber({errorHandler: errorHandler('Error in \'templates\' task')}))
+gulp.task('views', function () {
+    gulp.src('app/views/**/*.pug')
+        .pipe(plumber({errorHandler: errorHandler('Error in \'views\' task')}))
         .pipe(cached('pug'))
         .pipe(gulpif(global.watch, inheritance({basedir: 'app', skip: 'node_modules'})))
         .pipe(filter(function (file) {

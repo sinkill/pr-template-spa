@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     config = require('../config').paths;
 
 gulp.task('templates', function () {
-    gulp.src('app/**/*.pug')
+    gulp.src('app/pages/**/*.pug')
         .pipe(plumber({errorHandler: errorHandler('Error in \'templates\' task')}))
         .pipe(cached('pug'))
         .pipe(gulpif(global.watch, inheritance({basedir: 'app', skip: 'node_modules'})))

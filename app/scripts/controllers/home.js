@@ -4,7 +4,7 @@ angular.module('home', [])
 
     .config(($stateProvider) => {
         $stateProvider.state('home', {
-            url: '/home',
+            url: '/',
             templateUrl: 'views/home.html',
             controller: 'HomeController',
             data: {
